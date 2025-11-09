@@ -1,0 +1,86 @@
+:root {
+  --rust-red: #C14E2B;
+  --warm-brown: #8B5A2B;
+  --moss-green: #6B8E23;
+  --forest-green: #355E3B;
+  --soft-cream: #FFF5E1;
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background-color: var(--moss-green);
+  color: var(--black);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--warm-brown) 0%, var(--rust-red) 60%, var(--soft-cream) 100%);
+  color: var(--black);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-bottom: 4px solid var(--warm-brown);
+}
+
+header h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 0 var(--soft-cream); }
+header p { font-size: 1.2rem; font-style: italic; text-shadow: 1px 1px var(--soft-cream); margin-top: 0.5rem; }
+header img { max-width: 200px; border-radius: 50%; margin-top: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+/* Main content */
+main {
+  background-color: var(--soft-cream);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+}
+
+/* Section scroll effect */
+section { opacity: 0.7; transform: scale(0.98); transition: transform 0.4s ease, opacity 0.4s ease; margin-bottom: 2rem; }
+section.active { opacity: 1; transform: scale(1); }
+
+/* Headings */
+h2 {
+  color: var(--rust-red);
+  border-bottom: 2px solid var(--warm-brown);
+  padding-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+p { margin-bottom: 1.2rem; }
+
+/* Images */
+.section-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin: 1rem 0;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+.section-img:hover { transform: scale(1.05); filter: brightness(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.img-left { float: left; margin-right: 1rem; margin-bottom: 1rem; width: 45%; }
+.img-right { float: right; margin-left: 1rem; margin-bottom: 1rem; width: 45%; }
+
+/* Button */
+.btn {
+  background-color: var(--rust-red);
+  color: var(--soft-cream);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-weight: bold;
+  cursor: pointer;
