@@ -2,9 +2,9 @@
   --rust-red: #b84723;
   --dark-rust: #8a351c;
   --moss-green: #6b8e23;
+  --forest-green: #1b3b1a;
   --soft-cream: #fff5e1;
   --dark-brown: #3b2b1c;
-  --bamboo-green: #8fae5f;
 }
 
 html {
@@ -17,24 +17,8 @@ body {
   font-family: "Raleway", sans-serif;
   color: var(--soft-cream);
   line-height: 1.8;
-  position: relative;
   overflow-x: hidden;
 }
-
-/* Decorative side accents (temporary until paw print added) */
-body::before,
-body::after {
-  content: "🐾🎋🐾🎋🐾🎋";
-  position: fixed;
-  top: 10%;
-  font-size: 1.5rem;
-  opacity: 0.15;
-  writing-mode: vertical-rl;
-  line-height: 2.5rem;
-}
-
-body::before { left: 10px; }
-body::after { right: 10px; transform: scaleX(-1); }
 
 /* Header */
 header {
@@ -42,48 +26,79 @@ header {
   text-align: center;
   padding: 3rem 1rem;
   border-bottom: 4px solid var(--moss-green);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
-  font-family: "Pacifico", cursive;
-  font-size: 4rem;
-  margin: 0;
+  font-weight: 900;
+  font-size: 5.5rem;
   color: var(--soft-cream);
-  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 header p {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: var(--soft-cream);
-  margin-top: 0.8rem;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  font-weight: 800;
+  font-size: 2rem;
+  color: #000;
+  text-shadow:
+    -1px -1px 0 #fff,
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+  margin-top: 1rem;
 }
 
-/* Main content area */
+/* Decorative wrap (paw & bamboo accents only on brown background) */
+.decor-wrap {
+  position: relative;
+}
+
+.decor-wrap::before,
+.decor-wrap::after {
+  content: "🐾🎋🐾🎋🐾🎋";
+  position: fixed;
+  top: 10%;
+  font-size: 1.5rem;
+  opacity: 0.15;
+  writing-mode: vertical-rl;
+  line-height: 2.5rem;
+  z-index: 0;
+}
+
+.decor-wrap::before {
+  left: 10px;
+}
+
+.decor-wrap::after {
+  right: 10px;
+  transform: scaleX(-1);
+}
+
+/* Main layout */
 main {
   max-width: 950px;
   margin: 3rem auto;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Bamboo-bordered text boxes */
+/* Info Boxes with Realistic Bamboo Border */
 .info-box {
   background-color: rgba(255, 245, 225, 0.9);
   color: var(--dark-brown);
-  border: 12px solid var(--bamboo-green);
-  border-image: repeating-linear-gradient(
-    45deg,
-    var(--bamboo-green),
-    var(--bamboo-green) 10px,
-    #7a9935 10px,
-    #7a9935 20px
-  ) 12;
-  border-radius: 15px;
+  border: 16px solid transparent;
+  border-image: url("https://i.imgur.com/8x3rIHK.png") 40 round; /* Seamless bamboo border */
+  border-radius: 16px;
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -91,27 +106,29 @@ main {
   transform: scale(1.02);
 }
 
-/* Section titles */
+/* Section Titles */
 h2 {
   color: var(--rust-red);
-  font-size: 2.3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
-/* Paragraphs */
+/* Text */
 p {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
-/* Images */
+/* Section Images */
 .section-img {
   display: block;
   width: 100%;
   border-radius: 12px;
   margin: 1.5rem 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -120,28 +137,9 @@ p {
   filter: brightness(1.1);
 }
 
-/* Button */
-.btn {
-  background-color: var(--rust-red);
-  color: var(--soft-cream);
-  border: none;
-  border-radius: 10px;
-  padding: 0.8em 1.5em;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  background-color: var(--dark-rust);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-  transform: translateY(-2px);
-}
-
 /* Footer */
 footer {
-  background-color: var(--dark-rust);
+  background-color: var(--forest-green);
   color: var(--soft-cream);
   text-align: center;
   padding: 2rem;
