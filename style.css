@@ -7,31 +7,33 @@
   --dark-brown: #3b2b1c;
 }
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-color: var(--dark-brown);
+  background: linear-gradient(to bottom, #2d1f14, #3b2b1c);
   font-family: "Raleway", sans-serif;
   color: var(--soft-cream);
   line-height: 1.8;
   overflow-x: hidden;
 }
 
-/* Header */
+/* -------------------- HEADER -------------------- */
 header {
   background: linear-gradient(to bottom, var(--dark-rust), var(--rust-red));
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 3rem 1rem 3.5rem 1rem;
   border-bottom: 4px solid var(--moss-green);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
+  font-family: "Poppins", sans-serif;
   font-weight: 900;
-  font-size: 5.5rem;
+  font-size: 6.5rem;
   color: var(--soft-cream);
   text-shadow:
     -2px -2px 0 #000,
@@ -43,8 +45,9 @@ header h1 {
 }
 
 header p {
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #000;
   text-shadow:
     -1px -1px 0 #fff,
@@ -54,33 +57,37 @@ header p {
   margin-top: 1rem;
 }
 
-/* Decorative wrap (paw & bamboo accents only on brown background) */
+/* -------------------- SIDE DECORATION -------------------- */
 .decor-wrap {
   position: relative;
 }
 
 .decor-wrap::before,
 .decor-wrap::after {
-  content: "🐾🎋🐾🎋🐾🎋";
+  content: "";
   position: fixed;
-  top: 10%;
-  font-size: 1.5rem;
+  top: 0;
+  width: 80px;
+  height: 100%;
   opacity: 0.15;
-  writing-mode: vertical-rl;
-  line-height: 2.5rem;
   z-index: 0;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: center;
 }
 
 .decor-wrap::before {
-  left: 10px;
+  left: 0;
+  background-image: url("https://i.imgur.com/MAGwFZ7.png"); /* semi-transparent paw prints & bamboo column */
 }
 
 .decor-wrap::after {
-  right: 10px;
+  right: 0;
+  background-image: url("https://i.imgur.com/MAGwFZ7.png");
   transform: scaleX(-1);
 }
 
-/* Main layout */
+/* -------------------- MAIN CONTENT -------------------- */
 main {
   max-width: 950px;
   margin: 3rem auto;
@@ -89,36 +96,37 @@ main {
   z-index: 1;
 }
 
-/* Info Boxes with Realistic Bamboo Border */
+/* Each section container */
 .info-box {
-  background-color: rgba(255, 245, 225, 0.9);
+  background-color: rgba(255, 245, 225, 0.95);
   color: var(--dark-brown);
-  border: 16px solid transparent;
-  border-image: url("https://i.imgur.com/8x3rIHK.png") 40 round; /* Seamless bamboo border */
-  border-radius: 16px;
-  padding: 2rem;
+  border: 24px solid transparent;
+  border-image: url("https://i.imgur.com/8x3rIHK.png") 30 round; /* SEAMLESS BAMBOO TEXTURE BORDER */
+  border-radius: 18px;
+  padding: 2.5rem;
   margin-bottom: 3rem;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.info-box.active {
+.info-box:hover {
   transform: scale(1.02);
 }
 
 /* Section Titles */
 h2 {
   color: var(--rust-red);
-  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.7rem;
   text-align: center;
   margin-bottom: 1.2rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
 
-/* Text */
+/* Paragraph text */
 p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
@@ -128,16 +136,16 @@ p {
   width: 100%;
   border-radius: 12px;
   margin: 1.5rem 0;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .section-img:hover {
   transform: scale(1.03);
-  filter: brightness(1.1);
+  filter: brightness(1.15);
 }
 
-/* Footer */
+/* -------------------- FOOTER -------------------- */
 footer {
   background-color: var(--forest-green);
   color: var(--soft-cream);
