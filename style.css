@@ -1,157 +1,108 @@
-:root {
-  --rust-red: #b84723;
-  --dark-rust: #8a351c;
-  --moss-green: #6b8e23;
-  --forest-green: #1b3b1a;
-  --soft-cream: #fff5e1;
-  --dark-brown: #3b2b1c;
-  --bamboo-green: #8fae5f;
-}
+/*
+ * --- CUSTOM CSS STYLES ---
+ * Implements the requested color palette, framing, and text constraints.
+ */
 
-html {
-  scroll-behavior: smooth;
+/* Color Palette Definitions */
+:root {
+    --color-deep-maroon: #600300;       /* Header Background */
+    --color-charcoal-brown: #312e28;    /* Side Panels Background (Body) */
+    --color-dark-green: #2e4b36;        /* Footer Background */
+    --color-key-red: #c90000;           /* Key Accent/Outline */
+    --color-muted-green: #5f725d;       /* Side Panels Border */
+    --color-main-text: #080100;         /* Body Text Color */
+    --color-white: #FFFFFF;             /* Text Box Background / Accent */
 }
 
 body {
-  margin: 0;
-  background-color: var(--dark-brown);
-  font-family: "Raleway", sans-serif;
-  color: var(--soft-cream);
-  line-height: 1.8;
-  overflow-x: hidden;
+    background-color: var(--color-charcoal-brown);
+    color: var(--color-main-text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
-/* Header */
-header {
-  background: linear-gradient(to bottom, var(--dark-rust), var(--rust-red));
-  text-align: center;
-  padding: 3rem 1rem;
-  border-bottom: 4px solid var(--moss-green);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+/* Header Styling */
+.header-bg {
+    background-color: var(--color-deep-maroon);
+    color: var(--color-white);
 }
 
-header h1 {
-  font-weight: 900;
-  font-size: 5rem; /* increased by 10pt (~14px) */
-  color: var(--soft-cream);
-  text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000;
-  margin: 0;
+/* Footer Styling */
+.footer-bg {
+    background-color: var(--color-dark-green);
 }
 
-header p {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #000;
-  text-shadow:
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff;
-  margin-top: 0.8rem;
+/* Main Content Container (Central column) */
+.main-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    /* Side Panels Border */
+    border: 8px solid var(--color-muted-green);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-/* Decorative wrap (paw & bamboo only on brown section) */
-.decor-wrap {
-  position: relative;
+/* Text Shadow for Outlines */
+.title-outline-white {
+    color: var(--color-white);
+    /* White outline for main titles against the dark text */
+    text-shadow:
+        -1px -1px 0 var(--color-main-text),
+        1px -1px 0 var(--color-main-text),
+        -1px 1px 0 var(--color-main-text),
+        1px 1px 0 var(--color-main-text);
 }
 
-.decor-wrap::before,
-.decor-wrap::after {
-  content: "🐾🎋🐾🎋🐾🎋";
-  position: fixed;
-  top: 10%;
-  font-size: 1.5rem;
-  opacity: 0.15;
-  writing-mode: vertical-rl;
-  line-height: 2.5rem;
-  z-index: 0;
+.subtitle-outline-red {
+    color: var(--color-white);
+    /* Key Red outline for subtitle */
+    text-shadow:
+        -1px -1px 0 var(--color-key-red),
+        1px -1px 0 var(--color-key-red),
+        -1px 1px 0 var(--color-key-red),
+        1px 1px 0 var(--color-key-red);
 }
 
-.decor-wrap::before { left: 10px; }
-.decor-wrap::after { right: 10px; transform: scaleX(-1); }
-
-/* Main */
-main {
-  max-width: 950px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
+/* Keyword/Italicized text color */
+em {
+    color: var(--color-key-red);
+    font-style: italic;
+    font-weight: 600;
 }
 
-/* Info Boxes */
-.info-box {
-  background-color: rgba(255, 245, 225, 0.9);
-  color: var(--dark-brown);
-  border: 12px solid var(--bamboo-green);
-  border-image: repeating-linear-gradient(
-    45deg,
-    var(--bamboo-green),
-    var(--bamboo-green) 10px,
-    #7a9935 10px,
-    #7a9935 20px
-  ) 12;
-  border-radius: 15px;
-  padding: 2rem;
-  margin-bottom: 3rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+/* Text Box Styling */
+.text-box {
+    background-color: var(--color-white); /* Requested WHITE background */
+    padding: 2.5rem;
+    margin-bottom: 2px;
+    color: var(--color-main-text);
 }
 
-.info-box.active {
-  transform: scale(1.02);
+/* Paw Print Accents */
+.paw-print {
+    color: var(--color-white); /* White paw prints for visibility */
+    font-size: 1.5rem;
+    line-height: 1.5;
+    display: inline-block;
 }
 
-/* Section Titles */
-h2 {
-  color: var(--rust-red);
-  font-size: 2.3rem;
-  margin-bottom: 1rem;
-  text-align: center;
+/* PURE CSS BAMBOO FRAME EFFECT */
+.text-box-frame {
+    border: 2px solid var(--color-key-red); /* Inner frame accent */
+    box-shadow:
+        0 0 0 8px var(--color-dark-green), /* Thicker, dark green border */
+        0 0 0 10px var(--color-charcoal-brown); /* Outermost shadow */
+    border-radius: 8px;
+    margin: 1.5rem;
 }
 
-/* Text */
-p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+    .main-container {
+        width: 95%;
+    }
+    .text-box {
+        padding: 1.5rem;
+    }
 }
-
-/* Images */
-.section-img {
-  display: block;
-  width: 100%;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.section-img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.1);
-}
-
-/* Footer */
-footer {
-  background-color: var(--forest-green);
-  color: var(--soft-cream);
-  text-align: center;
-  padding: 2rem;
-  font-size: 1rem;
-  border-top: 4px solid var(--moss-green);
-}
-
-footer a {
-  color: var(--moss-green);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
