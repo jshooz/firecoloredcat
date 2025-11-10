@@ -1,12 +1,10 @@
-/* ======= COLOR PALETTE ======= */
 :root {
-  --text-main: #080100;          /* Main text color */
-  --accent: #c90000;             /* Accent/keyword red */
-  --header-bg: #600300;          /* Header background */
-  --footer-bg: #2e4b36;          /* Footer background */
-  --body-bg: #312e28;            /* Page/side background */
-  --side-border: #5f725d;        /* Side border color */
-  --box-bg: #ffffff;             /* White text boxes */
+  --rust-red: #b84723;
+  --dark-rust: #8a351c;
+  --moss-green: #6b8e23;
+  --forest-green: #1b3b1a;
+  --soft-cream: #fff5e1;
+  --dark-brown: #3b2b1c;
 }
 
 /* Smooth scrolling */
