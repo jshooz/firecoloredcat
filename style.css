@@ -14,7 +14,7 @@ body {
 /* Header */
 header {
   background-color: #600300;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   position: relative;
 }
@@ -22,7 +22,11 @@ header {
 .hero-image {
   position: relative;
   overflow: hidden;
-  max-height: 400px;
+  max-height: 350px; /* FIX 1: Reduced max-height */
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border-top: 4px solid #5f725d;
+  border-bottom: 4px solid #5f725d;
 }
 
 .hero-image img {
@@ -30,7 +34,9 @@ header {
   height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 0.9;
+  filter: brightness(95%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+  object-position: 50% 30%; /* FIX 2: Adjusted vertical focus */
 }
 
 .hero-text {
@@ -43,19 +49,19 @@ header {
 
 .hero-text h1 {
   font-size: 3em;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 2px 2px 4px #080100, -2px -2px 4px #080100;
 }
 
 .hero-text .subtitle {
-  color: #fff;
+  color: #ffffff;
   font-size: 1.3em;
   text-shadow: 1px 1px 2px #c90000;
 }
 
 /* Paw prints */
 .paw {
-  color: #fff;
+  color: #ffffff;
 }
 
 /* Info boxes */
@@ -99,7 +105,7 @@ main {
 /* Footer */
 footer {
   background-color: #2e4b36;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   padding: 1.5em 0;
 }
@@ -119,3 +125,4 @@ em {
   color: #c90000;
   font-style: italic;
 }
+
